@@ -1,0 +1,1 @@
+nix profile add nixpkgs#pixi
