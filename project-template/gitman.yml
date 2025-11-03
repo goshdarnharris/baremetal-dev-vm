@@ -1,32 +1,8 @@
 location: packages
 sources:
-  - repo: https://github.com/githubtraining/hellogitworld
-    name: sample_dependency
-    rev: master
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      -
-    scripts:
-      -
-    patches:
-      -
+  - 
 sources_locked:
-  - repo: https://github.com/githubtraining/hellogitworld
-    name: sample_dependency
-    rev: ebbbf773431ba07510251bb03f9525c7bab2b13a
-    type: git
-    params:
-    sparse_paths:
-      -
-    links:
-      -
-    scripts:
-      -
-    patches:
-      -
+  - 
 default_group: ''
 groups:
   -

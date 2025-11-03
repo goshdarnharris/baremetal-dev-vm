@@ -1,6 +1,5 @@
 cd ~/
-#Set up user directory envrc
-echo "use flake" >> .envrc  
+#Set up user directory envrc 
 direnv allow
 eval "$(direnv export bash)"
 

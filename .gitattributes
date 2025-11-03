@@ -2,9 +2,11 @@
 
 scripts/* text eol=lf
 project-template/* text eol=lf
+home/* text eol=lf
 
+**/*.nix text eol=lf
 **/.envrc text eol=lf
 *.nix text eol=lf
 **/pixi.toml text eol=lf
 **/gitman.yml text eol=lf
-*.sh text eol=lf
+**/*.sh text eol=lf

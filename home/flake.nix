@@ -1,13 +1,12 @@
 {
-  description = "A Nix-flake-based C/C++ development environment";
+  description = "Legacy Luminaire development environment. Provides an environment rooted at ~/ with the tools necessary to build firmware that does not specify its own environment.";
 
   inputs =
     {
-      nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0"; # stable Nixpkgs
+      nixpkgs.url = "github:nixos/nixpkgs?rev=4415dfb27cfecbe40a127eb3e619fd6615731004"; #This version of nixpks includes gcc-arm-embedded-12
       flake-utils.url = "github:numtide/flake-utils";
-      openocd-luminaire = {
-        #Need to figure out how to make this work with a tag instead of a commit hash.
-        url = "git+https://github.com/goshdarnharris/openocd?rev=140465617519720fee8764ac895e6ef3f2d9260d&submodules=1#";
+      lumi = {
+        url = "git+ssh://git@bitbucket.org/luminairecoffee/lumi?rev=98e3ad280bddfe923bf1e0a6718fc7bbf47efbbf";
         flake = true;
       };
       roast = {
@@ -15,11 +14,7 @@
         flake = true;
       };
       roast-utils = {
-        url = "git+ssh://git@bitbucket.org/luminairecoffee/environment?rev=0bf388387f1bc31236ede1dd58f774a54ecba27f";
-        flake = true;
-      };
-      lumi = {
-        url = "git+ssh://git@bitbucket.org/luminairecoffee/lumi?rev=508dc4d0d25db622916b0fe46ac5f44840ab5004";
+        url = "git+ssh://git@bitbucket.org/luminairecoffee/environment?rev=5262c706c51bcca4177ce08d307cd1f4163ce480";
         flake = true;
       };
     };
@@ -51,19 +46,13 @@
                 packages =
                   with pkgs;
                   [
-                    gcc-arm-embedded-13
-                    llvmPackages_21.clangNoLibc.cc
+                    gcc-arm-embedded-12
+                    llvmPackages_14.clangNoLibc.cc
+                    inputs.lumi.packages.${system}.default
                     inputs.openocd-luminaire.packages.${system}.default
                     inputs.roast.packages.${system}.default
                     inputs.roast-utils.packages.${system}.default
-                    inputs.lumi.packages.${system}.default
                   ];
-
-                #Ideally this environment variable would be set as part of installing roast-utils,
-                #but I haven't been able to figure out how to do that in a way that persists after the install.
-                shellHook = ''
-                  export PYTHONPATH="${inputs.roast-utils.outPath}/:$PYTHONPATH"
-                '';
               };
         }
       );
