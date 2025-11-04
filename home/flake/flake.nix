@@ -5,6 +5,11 @@
     {
       nixpkgs.url = "github:nixos/nixpkgs?rev=4415dfb27cfecbe40a127eb3e619fd6615731004"; #This version of nixpks includes gcc-arm-embedded-12
       flake-utils.url = "github:numtide/flake-utils";
+      openocd-luminaire = {
+        #Need to figure out how to make this work with a tag instead of a commit hash.
+        url = "git+https://github.com/goshdarnharris/openocd?rev=140465617519720fee8764ac895e6ef3f2d9260d&submodules=1#";
+        flake = true;
+      };
       lumi = {
         url = "git+ssh://git@bitbucket.org/luminairecoffee/lumi?rev=98e3ad280bddfe923bf1e0a6718fc7bbf47efbbf";
         flake = true;

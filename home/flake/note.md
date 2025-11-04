@@ -1,0 +1,1 @@
+Putting the flake in a subdirectory (relative to .envrc) prevents it from copying the entire contents of ~/ to the nix store. Doing so is slow and unnecessary, so this combined with some extra config in ~/.envrc prevents it.

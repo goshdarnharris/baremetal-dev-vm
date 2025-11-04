@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     end
 
     luminbox.vm.hostname = "luminbox.vm"
-    luminbox.vm.synced_folder ".", "/vagrant",
+    luminbox.vm.synced_folder ".", "/shared",
       mount_options: ["dmode=755,fmode=644"]
 
     luminbox.ssh.insert_key = false
