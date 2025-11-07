@@ -7,7 +7,7 @@
       flake-utils.url = "github:numtide/flake-utils";
       openocd-luminaire = {
         #Need to figure out how to make this work with a tag instead of a commit hash.
-        url = "git+https://github.com/goshdarnharris/openocd?rev=140465617519720fee8764ac895e6ef3f2d9260d&submodules=1#";
+        url = "git+https://github.com/goshdarnharris/openocd?rev=c54af57f8030484ecf8613d083eec40a7e9990d9&submodules=1#";
         flake = true;
       };
       lumi = {
